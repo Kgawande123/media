@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}
+<title xmlns="http://www.w3.org/1999/html">show</title>
+{% endblock %}
+{% block content %}
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>PID</th>
+            <th>NAME</th>
+            <th>City</th>
+            <th>AGE</th>
+            <th>DOB</th>
+            <th>GENDER</th>
+            <th>PROFILE_IMAGE</th>
+            <th>ABOUT</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for person in obj %}
+        <tr>
+            <td>{{person.pid}}</td>
+            <td>{{person.name}}</td>
+            <td>{{person.age}}</td>
+            <td>{{person.city}}</td>
+            <td>{{person.dob}}</td>
+            <td>{{person.gender}}</td>
+            <td><img src="{{person.pc.url}}" height="200px" width="200px"></td>
+            <td>
+                <a href="/a1/uv/{{person.pid}}"><buttont class="btn btn-success">Update</buttont></a>
+                <a href="/a1/dv/{{person.pid}}"><buttont class="btn btn-warning">Delete</buttont></a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
